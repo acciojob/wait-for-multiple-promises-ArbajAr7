@@ -19,11 +19,16 @@ let Promise3 = new Promise((resolve,reject) =>{
 });
 
 Promise.all([Promise1, Promise2, Promise3]).then((values) => {
+	let maxTime = Math.max(...values);
 	document.getElementById("output").innerHTML = "";
   values.forEach((item,index) => {
        document.getElementById("output").innerHTML += `<tr>
           <td>Promise ${index+1}</td>
           <td>${item/1000}</td>
         </tr>`
-  })
+  });
+	document.getElementById("output").innerHTML += `<tr>
+          <td>Total</td>
+          <td>${maxTime/1000}</td>
+        </tr>`
 });
