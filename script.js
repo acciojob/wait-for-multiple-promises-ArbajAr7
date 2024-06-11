@@ -19,8 +19,9 @@ let Promise3 = new Promise((resolve,reject) =>{
 });
 
 Promise.all([Promise1, Promise2, Promise3]).then((values) => {
+	document.getElementById("output").innerHTML = "";
   values.forEach((item,index) => {
-       document.getElementById("xyz").innerHTML += `<tr>
+       document.getElementById("output").innerHTML += `<tr>
           <td>Promise ${index+1}</td>
           <td>${item/1000}</td>
         </tr>`
