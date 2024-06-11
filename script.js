@@ -17,9 +17,10 @@ let Promise3 = new Promise((resolve,reject) =>{
 		resolve(time3);
 	}, time3);
 });
-
+let startTime = Date.now();
 Promise.all([Promise1, Promise2, Promise3]).then((values) => {
-	let maxTime = Math.max(...values);
+	 let endTime = Date.now();
+	  let totalTime = (endTime - startTime) / 1000;
 	document.getElementById("output").innerHTML = "";
   values.forEach((item,index) => {
        document.getElementById("output").innerHTML += `<tr>
@@ -29,6 +30,6 @@ Promise.all([Promise1, Promise2, Promise3]).then((values) => {
   });
 	document.getElementById("output").innerHTML += `<tr>
           <td>Total</td>
-          <td>${maxTime/1000}</td>
+          <td>${totalTime}</td>
         </tr>`
 });
